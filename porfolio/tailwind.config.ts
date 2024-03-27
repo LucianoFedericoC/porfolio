@@ -13,6 +13,30 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      keyframes: {
+        slidein: {
+          from: {
+            opacity: "0",
+            transform: "translatex(-10%)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translatex(0)",
+          },
+        },
+        fadein: {
+          from: {
+            opacity: "0",
+          },
+          to: {
+            opacity: "1",
+          },
+        },
+      },
+      animation: {
+        slidein: "slidein 3s ease 900ms",
+        fadein: "fadein 3s ease 900ms",
+      },
     },
   },
   plugins: [],
