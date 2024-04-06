@@ -1,6 +1,6 @@
 'use client';
 import Footer from './footer';
-import Navbar from './nav';
+import Navbar from './nav/navBar';
 
 const Navigation = () => {
 	return (
