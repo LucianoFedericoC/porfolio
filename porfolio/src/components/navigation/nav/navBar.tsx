@@ -5,10 +5,10 @@ import logo from '../../../assets/SVG/logo.svg';
 const Navbar = () => {
 	return (
 		<>
-			<div className='w-full h-14 bg-transparent top-0'>
+			<div className='w-full h-14 bg-transparent top-0 hidden md:block'>
 				<div className='mx-auto px-4 pt-3'>
 					<div className='flex justify-between items-center'>
-						<div className='flex text-nowrap gap-x-5 items-center'>
+						<div className='text-nowrap gap-x-5 items-center hidden md:flex'>
 							<Image src={logo} alt='logo' className='size-10' />
 							Luciano Carducci
 						</div>
@@ -29,7 +29,6 @@ const Navbar = () => {
 								</Link>
 							</li>
 						</ul>
-						<div className='hidden md:block'></div>
 						<div className='md:flex hidden items-center gap-x-4'>
 							<Link href='#'>
 								<p>Contact</p>

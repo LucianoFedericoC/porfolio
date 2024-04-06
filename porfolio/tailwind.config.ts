@@ -24,6 +24,16 @@ const config: Config = {
             transform: "translatex(0)",
           },
         },
+        slideinR: {
+          from: {
+            opacity: "0",
+            transform: "translatex(100%)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translatex(0)",
+          },
+        },
         fadein: {
           from: {
             opacity: "0",
@@ -34,11 +44,14 @@ const config: Config = {
         },
       },
       animation: {
-        slidein: "slidein 3s ease 900ms",
+        slidein: "slidein 2s ease 900ms",
+        slideinR: "slideinR 2s ease 900ms",
         fadein: "fadein 3s ease 900ms",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-animated')
+  ],
 };
 export default config;
