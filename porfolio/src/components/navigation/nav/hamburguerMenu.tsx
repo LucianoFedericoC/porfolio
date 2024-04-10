@@ -1,12 +1,23 @@
 import Link from 'next/link';
+import handleSection from '@/components/functions/sectioned';
 import { useState, useRef, useEffect } from 'react';
 
-const HamburguerMenu = () => {
+const HamburguerMenu = ({section2}:any) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const genericHamburgerLine = `h-0.5 w-6 my-0.5 rounded-full bg-white transition ease transform duration-300`;
 	const HMenu: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
 	const ButtonMenu: React.RefObject<HTMLButtonElement> =
 		useRef<HTMLButtonElement>(null);
+
+		const handleSection = (e: any, section:any) =>{
+			e.preventDefault()
+			window.scrollTo({
+				top:  section.current.offsetTop -  0,
+				behavior: "smooth"
+			})
+			setIsOpen(false)
+		}
+
 
 	useEffect(() => {
 		document.addEventListener('mousedown', handleOutsideClick);
@@ -63,25 +74,17 @@ const HamburguerMenu = () => {
 						className='fixed z-30 top-0 bg-black bg-opacity-80 w-full h-[50%] pt-10 animate-fade-left animate-duration-[1500ms]'>
 						<ul className='flex items-center p-5 text-center gap-y-10 flex-col text-white w-full'>
 							<li>
-								<Link href='#'>
-									<p>Home</p>
-								</Link>
-							</li>
-							<li>
-								<Link href='#'>
-									<p>About Me</p>
-								</Link>
-							</li>
-							<li>
-								<Link href='#'>
+								<button onClick={(e) => handleSection(e, section2)}>
 									<p>Projects</p>
-								</Link>
+								</button>
 							</li>
-						</ul>
-						<div className=' m-5 flex flex-row justify-start items-center gap-x-5'>
-							<Link href='#'>
+							<li>
+							<Link href='/contact'>
 								<p>Contact</p>
 							</Link>
+							</li>
+						</ul>
+						<div className=' m-5 flex flex-row justify-end items-center gap-x-5'>
 							<Link href='#'>
 								<p>Resumen</p>
 							</Link>

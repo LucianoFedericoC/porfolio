@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../../assets/SVG/logo.svg';
+import handleSection from '@/components/functions/sectioned';
 
-const Navbar = () => {
+const Navbar = ({section2}:any) => {
+
 	return (
 		<>
 			<div className='w-full h-14 bg-transparent top-0 hidden md:block'>
@@ -12,31 +14,23 @@ const Navbar = () => {
 							<Image src={logo} alt='logo' className='size-10' />
 							Luciano Carducci
 						</div>
-						<ul className='hidden md:flex gap-x-10 text-white w-full justify-center'>
+						<ul className='hidden md:flex gap-x-10 text-white w-full justify-end mx-4'>
 							<li>
-								<Link href='#'>
-									<p>Home</p>
-								</Link>
+								<button onClick={(e) => handleSection(e, section2)}>
+									<p className='hover:scale-105 duration-75'>Projects</p>
+								</button>
 							</li>
 							<li>
-								<Link href='#'>
-									<p>About Me</p>
-								</Link>
+							<Link href='/contact'>
+								<p className='hover:scale-105 duration-75'>Contact</p>
+							</Link>
 							</li>
 							<li>
-								<Link href='#'>
-									<p>Projects</p>
-								</Link>
+							<Link href='#'>
+								<p className='hover:scale-105 duration-75'>Resume</p>
+							</Link>
 							</li>
 						</ul>
-						<div className='md:flex hidden items-center gap-x-4'>
-							<Link href='#'>
-								<p>Contact</p>
-							</Link>
-							<Link href='#'>
-								<p>Resumen</p>
-							</Link>
-						</div>
 					</div>
 				</div>
 			</div>
