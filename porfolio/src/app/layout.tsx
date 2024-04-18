@@ -4,6 +4,7 @@ import logo from '../assets/SVG/logo.svg'
 import './globals.css';
 import 'dotenv/config';
 import Footer from '@/components/navigation/footer';
+import { ThemeProvider } from './theme-provider.tsx';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,11 +19,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>
-			<body className={inter.className}>
-				{children}
-				<Footer />
-			</body>
-		</html>
+	    <html lang="en">
+      <body
+        className={`${inter.className}`}
+      >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <main>{children}</main>
+        </ThemeProvider>
+      </body>
+    </html>
 	);
 }
