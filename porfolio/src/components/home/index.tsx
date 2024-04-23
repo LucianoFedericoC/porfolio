@@ -16,8 +16,9 @@ import { useRef, useEffect, useState } from 'react';
 import { SectionRef } from './domain/home/home.interface';
 import Projects from '../projects';
 import AboutMe from '../aboutMe';
-import Loader from '../loader';
+import Loader from '../loader/pageLoader';
 import { useTheme } from 'next-themes';
+import { delay } from '@/actions/delay';
 
 const Home = () => {
 	const section_1 = useRef<SectionRef>(null);
@@ -27,11 +28,14 @@ const Home = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [resolvedTheme, setResolvedTheme] = useState('light');
 
-	const { resolvedTheme: currentTheme }: any = typeof window !== 'undefined' ? useTheme() : { resolvedTheme: 'light' };
-  
+	const { resolvedTheme: currentTheme }: any =
+		typeof window !== 'undefined' ? useTheme() : { resolvedTheme: 'light' };
+
 	useEffect(() => {
 		setResolvedTheme(currentTheme);
-		setIsLoading(false)
+		delay(() => {
+			setIsLoading(false);
+		}, 700);
 	}, [currentTheme]);
 
 	const handleScrollToTop = () => {
@@ -59,7 +63,7 @@ const Home = () => {
 		<>
 			{!isLoading ? (
 				<div className='w-full h-full'>
-					<header className='h-screen dark:bg-portfolio-grayBg bg-portfolio-antiFlashWhite'>
+					<header className='h-screen dark:bg-portfolio-black bg-portfolio-antiFlashWhite'>
 						<Navbar section2={section_2} />
 						<HamburguerMenu section2={section_2} />
 						<Image
@@ -70,12 +74,12 @@ const Home = () => {
 						<div className='absolute w-full h-full flex items-center justify-around md:flex-row flex-col z-10'>
 							<div className='md:w-2/4 md:mx-auto flex flex-col animate-fade-right animate-once animate-duration-[1500ms]'>
 								<div className='inline-block relative pt-3 pr-3 overflow-hidden ml-4 md:ml-0'>
-									<h1 className='font-black dark:text-portfolio-antiFlashWhite text-black md:text-6xl text-5xl mb-5'>
+									<h1 className='font-black dark:text-portfolio-antiFlashWhite text-portfolio-black md:text-6xl text-5xl mb-5'>
 										Luciano Carducci
 									</h1>
 								</div>
 								<div className='inline-block relative pt-3 pr-3 overflow-hidden ml-4 md:ml-0'>
-									<h3 className='md:text-2xl dark:text-portfolio-antiFlashWhite text-black text-sm mb-5'>
+									<h3 className='md:text-2xl dark:text-portfolio-antiFlashWhite text-portfolio-black text-sm mb-5'>
 										Full stack web developer
 									</h3>
 								</div>
@@ -84,13 +88,14 @@ const Home = () => {
 										onClick={(e) =>
 											handleSection(e, section_1)
 										}
-										className='flex w-28 h-12 justify-center items-center dark:text-portfolio-antiFlashWhite text-black bg-[#5ea5c3] font-semibold rounded-md hover:scale-90 duration-300'>
+										className='flex w-28 h-12 justify-center items-center dark:text-portfolio-antiFlashWhite text-portfolio-black bg-portfolio-orange font-semibold rounded-md hover:scale-90 duration-300'>
 										About me
 									</button>
 								</div>
 							</div>
 							<div className='md:fixed flex md:right-0 md:flex-col md:mb-0 md:mr-6 mr-0 mb-32 md:gap-y-6 gap-x-6 flex-row z-10'>
-								{resolvedTheme != undefined && resolvedTheme === 'dark' ? (
+								{resolvedTheme != undefined &&
+								resolvedTheme === 'dark' ? (
 									<>
 										<Link
 											className='hover:-translate-y-1 hover:scale-110 duration-300 md:sticky'
@@ -110,7 +115,8 @@ const Home = () => {
 											<Image src={linkedIn} alt='gmail' />
 										</Link>
 									</>
-								) : resolvedTheme != undefined && resolvedTheme === 'light' ? (
+								) : resolvedTheme != undefined &&
+								  resolvedTheme === 'light' ? (
 									<>
 										<Link
 											className='hover:-translate-y-1 hover:scale-110 duration-300 md:sticky'
@@ -139,18 +145,20 @@ const Home = () => {
 											/>
 										</Link>
 									</>
-								) : ''}
+								) : (
+									''
+								)}
 							</div>
 						</div>
 					</header>
 					<section
 						ref={section_1}
-						className='bg-red-700 h-screen w-full'>
+						className='dark:bg-portfolio-black bg-portfolio-antiFlashWhite h-screen w-full flex justify-center items-center'>
 						<AboutMe />
 					</section>
 					<section
 						ref={section_2}
-						className='bg-green-700 h-screen w-full'>
+						className='dark:bg-portfolio-black bg-portfolio-antiFlashWhite h-screen w-full flex justify-center items-center'>
 						<Projects />
 					</section>
 					{showButton && (

@@ -6,9 +6,9 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --scrollbar-thumb-hover: #76cbf0;
+  --scrollbar-thumb-hover: #d07d1a;
   --scrollbar-bg: #ebebeb;
-  --scrollbar-thumb: #478098;
+  --scrollbar-thumb: #684529;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,9 +38,24 @@
 }
 
 .dark {
-  --scrollbar-thumb-hover: #76cbf0;
-  --scrollbar-bg: #1c1d25;
-  --scrollbar-thumb: #478098;
+  --scrollbar-thumb-hover: #d07d1a;
+  --scrollbar-bg: #1d1d1d;
+  --scrollbar-thumb: #684529;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: transparent !important;
+    background-image: none !important;
+    color: inherit !important;
+    
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  -webkit-text-fill-color: #1d1d1d !important;
 }
 
 body {
