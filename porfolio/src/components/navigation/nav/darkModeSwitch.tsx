@@ -27,7 +27,7 @@ const DarkModeSwitch = () => {
 					</svg>
 				) : (
 					<svg
-						className='fill-amber-500 md:hover:fill-gray-400 hidden dark:block'
+						className='fill-portfolio-orange md:hover:fill-gray-400 hidden dark:block'
 						fill='currentColor'
 						viewBox='0 0 20 20'>
 						<path

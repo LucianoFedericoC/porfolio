@@ -68,7 +68,7 @@ const HamburguerMenu = ({ section2 }: any) => {
 					<div className='fixed w-full top-0 left-0 z-20 h-full bg-gray-800/5 backdrop-blur-sm overflow-hidden' />
 					<aside
 						ref={HMenu}
-						className='fixed z-30 top-0 dark:bg-black bg-gray-300 dark:bg-opacity-80 bg-opacity-90 w-full smartphone_200px:h-[44%] smartphone_400px:h-[35%] smartphone_380px:h-[34%] smartphone_500px:h-[40%] pt-10 animate-fade-left animate-duration-[1500ms]'>
+						className='fixed z-30 top-0 dark:bg-black bg-gray-300 dark:bg-opacity-80 bg-opacity-90 w-full smartphone_200px:h-[34%] smartphone_380px:h-[34%] smartphone_400px:h-[35%] smartphone_500px:h-[40%] pt-10 animate-fade-left animate-duration-[1500ms]'>
 						<div className='fixed top-0 h-12 w-12 m-2'>
 							<DarkModeSwitch />
 						</div>
@@ -77,21 +77,21 @@ const HamburguerMenu = ({ section2 }: any) => {
 								<button
 									onClick={(e) => handleSection(e, section2)}
 									className='w-48'>
-									<p className='dark:text-portfolio-antiFlashWhite text-black'>
+									<p className='dark:text-portfolio-antiFlashWhite text-portfolio-black'>
 										Projects
 									</p>
 								</button>
 							</li>
 							<li className='border-y border-[#3e7187] w-[85%] py-1'>
 								<Link href='/contact'>
-									<p className='dark:text-portfolio-antiFlashWhite text-black'>
+									<p className='dark:text-portfolio-antiFlashWhite text-portfolio-black'>
 										Contact
 									</p>
 								</Link>
 							</li>
 							<li className='border-y border-[#3e7187] w-[85%] py-1'>
 								<Link href='#'>
-									<p className='dark:text-portfolio-antiFlashWhite text-black'>
+									<p className='dark:text-portfolio-antiFlashWhite text-portfolio-black'>
 										Resumen
 									</p>
 								</Link>
